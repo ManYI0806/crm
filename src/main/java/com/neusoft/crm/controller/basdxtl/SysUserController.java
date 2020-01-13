@@ -1,5 +1,7 @@
 package com.neusoft.crm.controller.basdxtl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,5 +24,10 @@ public class SysUserController {
 	@RequestMapping("/selectSysUserById")
 	public SysUser selectSysUserById(@RequestBody SysUser sysUser) throws Exception {
 		return sysUserService.selectSysUserById(sysUser);
+	}
+	
+	@RequestMapping("/selectSysUserCustMgrAll")
+	public List<SysUser> selectSysUserCustMgrAll() throws Exception{
+		return sysUserService.selectSysUserCustMgrAll();
 	}
 }
