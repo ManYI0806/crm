@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.neusoft.crm.mapper.salextl.SaleChanceMapper">
+
+	<select id="selectSaleChanceCount" parameterType="saleChance" resultType="int">
+		select count(*) from SaleChance
+		<where>
+			<if test="chanceCustName!=null and chanceCustName!=''">
+			    and chanceCustName like concat('%',#{chanceCustName},'%')
+			</if>
+			<if test="chanceTitle!=null and chanceTitle!=''">
+			    and chanceTitle like concat('%',#{chanceTitle},'%')
+			</if>
+			<if test="chanceLinkman!=null and chanceLinkman!=''">
+			    and chanceLinkman like concat('%',#{chanceLinkman},'%')
+			</if>
+				 and chanceStatus=#{chanceStatus}
+		</where>
+	</select>
+	
+	<select id="selectSaleChancePaging" parameterType="saleChance" resultType="saleChance">
+	    select * from SaleChance
+	    <where>
+			<if test="chanceCustName!=null and chanceCustName!=''">
+			    and chanceCustName like concat('%',#{chanceCustName},'%')
+			</if>
+			<if test="chanceTitle!=null and chanceTitle!=''">
+			    and chanceTitle like concat('%',#{chanceTitle},'%')
+			</if>
+			<if test="chanceLinkman!=null and chanceLinkman!=''">
+			    and chanceLinkman like concat('%',#{chanceLinkman},'%')
+			</if>
+			    and chanceStatus=#{chanceStatus}
+		</where>
+		order by chanceId desc
+		limit #{beginNum},#{maxPageNum}
+	</select>
+	
+	<insert id="insertSaleChance" parameterType="saleChance">
+		insert into saleChance 
+		                   values(null,#{chanceSource},
+		                   #{chanceCustName},#{chanceTitle},
+		                   #{chanceRate},#{chanceLinkman},
+		                   #{chanceTel},#{chanceDesc},
+		                   #{chanceCreateId},#{chanceCreateDate},
+		                   null,null,0);
+	</insert>
+	
+</mapper>
