@@ -29,6 +29,10 @@ public class SaleChance {
 	private String chanceDueDate;
 	// 销售机会状态
 	private Integer chanceStatus;
+	// 分页的起始位置
+	private Integer beginNum;
+	// 分页的显示记录数
+	private Integer maxPageNum;
 
 	public Integer getChanceId() {
 		return chanceId;
@@ -132,6 +136,22 @@ public class SaleChance {
 
 	public void setChanceStatus(Integer chanceStatus) {
 		this.chanceStatus = chanceStatus;
+	}
+
+	public Integer getBeginNum() {
+		return beginNum;
+	}
+
+	public void setBeginNum(Integer beginNum) {
+		this.beginNum = beginNum;
+	}
+
+	public Integer getMaxPageNum() {
+		return maxPageNum;
+	}
+
+	public void setMaxPageNum(Integer maxPageNum) {
+		this.maxPageNum = maxPageNum;
 	}
 
 }
