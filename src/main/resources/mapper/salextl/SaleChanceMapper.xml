@@ -48,4 +48,16 @@
 		                   null,null,0);
 	</insert>
 	
+	<update id="editSaleChance" parameterType="saleChance">
+	    update SaleChance 
+	    set chanceSource=#{chanceSource},
+	          chanceCustName=#{chanceCustName},
+	          chanceRate=#{chanceRate},
+	          chanceTitle=#{chanceTitle},
+	          chanceTel=#{chanceTel},
+	          chanceLinkman=#{chanceLinkman},
+	          chanceDesc=#{chanceDesc}
+	    where chanceId=#{chanceId}
+	</update>
+	
 </mapper>
