@@ -18,4 +18,9 @@ public class SysUserController {
 	public SysUser selectSysUserByNameByPass(@RequestBody SysUser sysUser) throws Exception {
 		return sysUserService.selectSysUserByNameByPass(sysUser);
 	}
+	
+	@RequestMapping("/selectSysUserById")
+	public SysUser selectSysUserById(@RequestBody SysUser sysUser) throws Exception {
+		return sysUserService.selectSysUserById(sysUser);
+	}
 }
