@@ -20,17 +20,29 @@ public class DataClientLevelController {
 	public int insertDataClientLevel(@RequestBody DataClientLevel dataClientLevel) throws Exception {
 		return dataClientLevelService.insertDataClientLevel(dataClientLevel);
 	}
+
 	@RequestMapping("/deleteDataClientLevel")
 	public int deleteDataClientLevel(@RequestBody DataClientLevel dataClientLevel) throws Exception {
-		return dataClientLevelService.deleteDataClientLevel(dataClientLevel);
+		return dataClientLevelService.deleteDataClientLevelById(dataClientLevel);
 	}
+
 	@RequestMapping("/updateDataClientLevel")
-    public int updateDataClientLevel(@RequestBody DataClientLevel dataClientLevel) throws Exception {
-		return dataClientLevelService.updateNewsType(dataClientLevel);
-}
+	public int updateDataClientLevel(@RequestBody DataClientLevel dataClientLevel) throws Exception {
+		return dataClientLevelService.updateDataClientLevel(dataClientLevel);
+	}
+
 	@RequestMapping("selectDataClientLevelAll")
-	public List<DataClientLevel> selectDataClientLevelAll() throws Exception{
-        return dataClientLevelService.selectDataClientLevelAll();
-}
+	public List<DataClientLevel> selectDataClientLevelAll() throws Exception {
+		return dataClientLevelService.selectDataClientLevelAll();
+	}
+
+	@RequestMapping("/selectDataClientLevelById")
+	public DataClientLevel selectDataClientLevelById(@RequestBody DataClientLevel dataClientLevel) throws Exception {
+		return dataClientLevelService.selectDataClientLevelById(dataClientLevel);
+	}
 	
+	@RequestMapping("/deleteDataClientLevelBatch")
+	public int deleteDataClientLevelBatch(@RequestBody int[] dclIdArr) throws Exception {
+		return dataClientLevelService.deleteDataClientLevelBatch(dclIdArr);
+	}
 }
