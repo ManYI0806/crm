@@ -10,9 +10,9 @@ import org.apache.ibatis.annotations.Update;
 
 import com.neusoft.crm.entity.DataArea;
 
+@Mapper
 public interface DataAreaMapper {
-	@Mapper
-	public interface DataClientLevelMapper {
+	
 
 		@Insert("insert into dataArea values(null,#{daName})")
 		public int insertDataArea(DataArea dataArea);
@@ -32,4 +32,4 @@ public interface DataAreaMapper {
 		public int deleteDataAreaBatch(int[] daIdArr);
 	}
 
-}
+
