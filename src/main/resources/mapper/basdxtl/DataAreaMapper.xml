@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.crm.mapper.basdxtl.DataAreaMapper">
+
+    <delete id="deleteDataAreaBatch" parameterType="int">
+    delete from DataArea where daId in (
+    <foreach collection="array" item="daId" separator=",">
+    	#{daId}
+    </foreach>
+    )
+    </delete>
+  
+</mapper>
