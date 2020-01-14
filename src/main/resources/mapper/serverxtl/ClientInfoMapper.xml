@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.crm.mapper.serverxtl.ClientInfoMapper">
+    
+    <resultMap type="clientInfo" id="clientInfoResultMap">
+        <id column="clientCode" property="clientCode"></id>
+        <result column="clientName" property="clientName"/>
+        <result column="clientAreaId" property="clientAreaId"/>
+        <result column="clientCustId" property="clientCustId"/>
+        <result column="clientLevelId" property="clientLevelId"/>
+        <result column="clientContentment" property="clientContentment"/>
+        <result column="clientCredit" property="clientCredit"/>
+        <result column="clientAddress" property="clientAddress"/>
+        <result column="clientDakCode" property="clientDakCode"/>
+        <result column="clientTel" property="clientTel"/>
+        <result column="clientFax" property="clientFax"/>
+        <result column="clientNet" property="clientNet"/>
+        <result column="clientCharter" property="clientCharter"/>
+        <result column="clientCorporation" property="clientCorporation"/>
+        <result column="clientBankroll" property="clientBankroll"/>
+        <result column="clientTurnoverYear" property="clientTurnoverYear"/>
+        <result column="clientBank" property="clientBank"/>
+        <result column="clientAccounts" property="clientAccounts"/>
+        <result column="clientNativeTax" property="clientNativeTax"/>
+        <result column="clientCountryTax" property="clientCountryTax"/>
+        <result column="clientState" property="clientState"/>
+        <result column="clientLoseReason" property="clientLoseReason"/>
+        <result column="clientLoseDate" property="clientLoseDate"/>
+        <association property="orders" javaType="orders">
+            <id column="oordersId" property="oordersId"/>
+            <result column="oordersDate" property="oordersDate"/>
+            <result column="oaddress" property="oaddress"/>
+            <result column="oordersState" property="oordersState"/>
+            <result column="oclientCode" property="oclientCode"/>
+            <result column="oordersTotal" property="oordersTotal"/>
+            <result column="oremark" property="oremark"/>
+        </association>
+    </resultMap>
+    
+    <select id="selectClientInfoAndOrders" resultMap="clientInfoResultMap">
+        select c.clientName,
+               o.ordersTotal
+        from clientInfo c left join orders o
+        on c.clientCode=o.clientCode
+    </select>
+    
+       
+</mapper>
