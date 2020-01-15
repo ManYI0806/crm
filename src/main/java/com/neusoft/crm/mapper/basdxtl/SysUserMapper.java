@@ -18,4 +18,7 @@ public interface SysUserMapper {
 	
 	@Select("select * from sysuser where userRoleId=3")
 	public List<SysUser> selectSysUserCustMgrAll();
+	
+	@Select("select * from sysuser")
+	public List<SysUser> selectSysUserAll();
 }
