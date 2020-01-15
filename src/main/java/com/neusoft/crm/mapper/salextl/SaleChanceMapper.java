@@ -28,6 +28,9 @@ public interface SaleChanceMapper {
 	
 	public int editSaleChance(SaleChance saleChance);
 	
+	@Update("update SaleChance set chanceStatus=3 where chanceId=#{chanceId}")
+	public int updateSaleChanceStatusById(SaleChance saleChance);
+	
 	@Delete("delete from SaleChance where chanceId=#{chanceId}")
 	public int deleteSaleChanceById(SaleChance saleChance);
 }
