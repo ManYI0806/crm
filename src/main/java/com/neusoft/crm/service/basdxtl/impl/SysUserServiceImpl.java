@@ -29,5 +29,40 @@ public class SysUserServiceImpl implements SysUserService {
 	public List<SysUser> selectSysUserCustMgrAll() {
 		return sysUserMapper.selectSysUserCustMgrAll();
 	}
+
+	@Override
+	public List<SysUser> selectSysUserAll() {
+		return sysUserMapper.selectSysUserAll();
+	}
+
+	@Override
+	public int selectSysUserCount(SysUser sysUser) {
+		return sysUserMapper.selectSysUserCount(sysUser);
+	}
+
+	@Override
+	public List<SysUser> selectSysUserPaging(SysUser sysUser) {
+		return sysUserMapper.selectSysUserPaging(sysUser);
+	}
+
+	@Override
+	public int deleteSysUserBatch(int[] sysUserArr) {
+		return sysUserMapper.deleteSysUserBatch(sysUserArr);
+	}
+
+	@Override
+	public int updateSysUser(SysUser sysUser) {
+		return sysUserMapper.updateSysUser(sysUser);
+	}
+
+	@Override
+	public int deleteSysUserById(SysUser sysUser) {
+		return sysUserMapper.deleteSysUserById(sysUser);
+	}
+
+	@Override
+	public int insertSysUser(SysUser sysUser) {
+		return sysUserMapper.insertSysUser(sysUser);
+	}
 	
 }
