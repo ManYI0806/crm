@@ -30,4 +30,8 @@ public class SysUserController {
 	public List<SysUser> selectSysUserCustMgrAll() throws Exception{
 		return sysUserService.selectSysUserCustMgrAll();
 	}
+	@RequestMapping("/selectSysUserAll")
+	public List<SysUser> selectSysUserAll() throws Exception {
+		return sysUserService.selectSysUserAll();
+	}
 }
