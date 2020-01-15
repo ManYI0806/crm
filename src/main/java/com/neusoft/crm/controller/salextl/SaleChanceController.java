@@ -17,10 +17,10 @@ public class SaleChanceController {
 	private SaleChanceService saleChanceService;
 
 	@RequestMapping("/selectSaleChanceById")
-	public SaleChance selectSaleChanceById(@RequestBody SaleChance saleChance) throws Exception{
+	public SaleChance selectSaleChanceById(@RequestBody SaleChance saleChance) throws Exception {
 		return saleChanceService.selectSaleChanceById(saleChance);
 	}
-	
+
 	@RequestMapping("/selectSaleChanceCount")
 	public int selectSaleChanceCount(@RequestBody SaleChance saleChance) throws Exception {
 		System.out.println(saleChance);
@@ -32,25 +32,30 @@ public class SaleChanceController {
 		System.out.println(saleChance);
 		return saleChanceService.selectSaleChancePaging(saleChance);
 	}
-	
+
 	@RequestMapping("/insertSaleChance")
-	public int insertSaleChance(@RequestBody SaleChance saleChance) throws Exception{
+	public int insertSaleChance(@RequestBody SaleChance saleChance) throws Exception {
 		return saleChanceService.insertSaleChance(saleChance);
 	}
-	
+
 	@RequestMapping("/dueSaleChance")
-	public int dueSaleChance(@RequestBody SaleChance saleChance) throws Exception{
+	public int dueSaleChance(@RequestBody SaleChance saleChance) throws Exception {
 		return saleChanceService.dueSaleChance(saleChance);
 	}
-	
+
 	@RequestMapping("/editSaleChance")
-	public int editSaleChance(@RequestBody SaleChance saleChance) throws Exception{
+	public int editSaleChance(@RequestBody SaleChance saleChance) throws Exception {
 		return saleChanceService.editSaleChance(saleChance);
 	}
-	
+
+	@RequestMapping("/updateSaleChanceStatusById")
+	public int updateSaleChanceStatusById(@RequestBody SaleChance saleChance) throws Exception {
+		return saleChanceService.updateSaleChanceStatusById(saleChance);
+	}
+
 	@RequestMapping("/deleteSaleChanceById")
-	public int deleteSaleChanceById(@RequestBody SaleChance saleChance) throws Exception{
+	public int deleteSaleChanceById(@RequestBody SaleChance saleChance) throws Exception {
 		return saleChanceService.deleteSaleChanceById(saleChance);
 	}
-	
+
 }
