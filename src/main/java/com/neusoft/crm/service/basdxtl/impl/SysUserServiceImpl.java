@@ -14,20 +14,25 @@ public class SysUserServiceImpl implements SysUserService {
 
 	@Autowired
 	private SysUserMapper sysUserMapper;
-	
+
 	@Override
 	public SysUser selectSysUserByNameByPass(SysUser sysUser) {
 		return sysUserMapper.selectSysUserByNameByPass(sysUser);
 	}
-	
+
 	@Override
 	public SysUser selectSysUserById(SysUser sysUser) {
 		return sysUserMapper.selectSysUserById(sysUser);
 	}
-	
+
 	@Override
 	public List<SysUser> selectSysUserCustMgrAll() {
 		return sysUserMapper.selectSysUserCustMgrAll();
 	}
-	
+
+	@Override
+	public List<SysUser> selectSysUserAll() {
+		return sysUserMapper.selectSysUserAll();
+	}
+
 }
