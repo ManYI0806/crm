@@ -50,4 +50,9 @@ public class SaleChanceServiceImpl implements SaleChanceService {
 		return saleChanceMapper.editSaleChance(saleChance);
 	}
 	
+	@Override
+	public int updateSaleChanceStatusById(SaleChance saleChance) {
+		return saleChanceMapper.updateSaleChanceStatusById(saleChance);
+	}
+	
 }
