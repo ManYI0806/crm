@@ -8,4 +8,76 @@
         values
         (#{serverTypeId},#{serverTitle},#{clientCode},#{serverContent},#{serverCreateId},#{serverCreateDate})
     </insert>
+    <resultMap type="ClientServer" id="ClientServerResultMap">
+		<id column="serverId" property="serverId"></id>
+		<result column="serverTypeId" property="serverTypeId" />
+		<result column="serverTitle" property="serverTitle" />
+		<result column="clientCode" property="clientCode" />
+		<result column="serverStatus" property="serverStatus" />
+		<result column="serverContent" property="serverContent" />
+		<result column="serverCreateId" property="serverCreateId" />
+		<result column="serverCreateDate" property="serverCreateDate" />
+		<result column="serverDueId" property="serverDueId" />
+		<result column="serverDueDate" property="serverDueDate" />
+		<result column="serverProcessing" property="serverProcessing" />
+		<result column="processingDate" property="processingDate" />
+		<result column="processingResult" property="processingResult" />
+		<result column="clientContentment" property="clientContentment" />
+		<association property="clientInfo" javaType="clientInfo">
+			<id column="clientCode" property="clientCode"></id>
+			<result column="clientName" property="clientName" />
+		</association>
+		<association property="dataServerType" javaType="dataServerType">
+		    <id column="dstId" property="dstId"></id>
+		    <result column="dstName" property="dstName" />
+		</association>
+		<association property="sysUser" javaType="sysUser">
+		    <id column="userId" property="userId"></id>
+		    <result column="userName" property="userName" />
+		</association>
+	</resultMap>
+
+    <select id="selectClientServerAll" resultMap="ClientServerResultMap">
+		select
+		cs.serverId,c.clientName,cs.serverTitle,d.dstName,s.userName,cs.serverCreateDate
+		from clientServer cs join clientInfo c on cs.clientCode=c.clientCode
+		join dataServerType d on cs.serverTypeId=d.dstId
+		join sysUser s on
+		cs.serverCreateId=s.userId
+        order by cs.serverId
+	</select>
+
+    <select id="selectClientServerAllInfo" resultMap="ClientServerResultMap">
+		select
+		cs.serverId,c.clientName,cs.serverTitle,d.dstName,s.userName,cs.serverCreateDate
+		from clientServer cs join clientInfo c on cs.clientCode=c.clientCode
+		join dataServerType d on cs.serverTypeId=d.dstId
+		join sysUser s on
+		cs.serverCreateId=s.userId
+        order by cs.serverId
+	</select>
+
+
+
+	<select id="selectClientServerByTerm" parameterType="ClientServer"
+		resultMap="ClientServerResultMap">
+		select
+		cs.serverId,c.clientName,cs.serverTitle,d.dstName,s.userName,cs.serverCreateDate
+		from clientServer cs join clientInfo c on cs.clientCode=c.clientCode
+		join dataServerType d on cs.serverTypeId=d.dstId
+		join sysUser s on
+		cs.serverCreateId=s.userId
+		<where>
+            <if test="clientInfo.clientName!=null and clientInfo.clientName!=''">
+                and c.clientName like concat('%',#{clientName},'%')
+            </if>
+            <if test="serverTitle!=null and serverTitle!=''">
+                and cs.serverTitle like concat('%',#{serverTitle},'%')
+            </if>
+            <if test="dataServerType.dstName!=null and dataServerType.dstName!=''">
+                and d.dstName like concat('%',#{dstName},'%')
+            </if>
+        </where>
+        order by cs.serverId
+	</select>
 </mapper>
