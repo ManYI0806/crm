@@ -15,6 +15,27 @@ public class SysUser {
 	private Integer daId;
 	// 用户标识(留用)
 	private Integer userFlag;
+	private DataArea dataArea;
+	// 分页的起始位置
+	private Integer beginNum;
+	// 分页的显示记录数
+	private Integer maxPageNum;
+
+	public Integer getBeginNum() {
+		return beginNum;
+	}
+
+	public void setBeginNum(Integer beginNum) {
+		this.beginNum = beginNum;
+	}
+
+	public Integer getMaxPageNum() {
+		return maxPageNum;
+	}
+
+	public void setMaxPageNum(Integer maxPageNum) {
+		this.maxPageNum = maxPageNum;
+	}
 
 	public Integer getUserId() {
 		return userId;
@@ -63,5 +84,15 @@ public class SysUser {
 	public void setUserFlag(Integer userFlag) {
 		this.userFlag = userFlag;
 	}
+
+	public DataArea getDataArea() {
+		return dataArea;
+	}
+
+	public void setDataArea(DataArea dataArea) {
+		this.dataArea = dataArea;
+	}
+	
+	
 
 }
