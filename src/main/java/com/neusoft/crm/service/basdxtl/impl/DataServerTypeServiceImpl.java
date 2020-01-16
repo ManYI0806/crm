@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.neusoft.crm.entity.ClientServer;
 import com.neusoft.crm.entity.DataServerType;
 import com.neusoft.crm.mapper.basdxtl.DataServerTypeMapper;
 import com.neusoft.crm.service.basdxtl.DataServerTypeService;
@@ -43,6 +44,11 @@ public class DataServerTypeServiceImpl implements DataServerTypeService {
 	@Override
 	public int deleteDataServerTypeBatch(int[] dstIdArr) {
 		return dataServerTypeMapper.deleteDataServerTypeBatch(dstIdArr);
+	}
+
+	@Override
+	public List<ClientServer> selectDataServerTypeAndClientServerAll() {
+		return dataServerTypeMapper.selectDataServerTypeAndClientServerAll();
 	}
 
 }
