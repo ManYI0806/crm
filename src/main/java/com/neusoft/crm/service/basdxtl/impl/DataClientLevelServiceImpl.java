@@ -45,6 +45,10 @@ public class DataClientLevelServiceImpl implements DataClientLevelService {
 		return dataClientLevelMapper.deleteDataClientLevelBatch(dclIdArr);
 	}
 
-
+    //rept
+	@Override
+	public List<DataClientLevel> selectClientInfoAndDataClientLevelAll() {
+		return dataClientLevelMapper.selectClientInfoAndDataClientLevelAll();
+	}
 
 }
