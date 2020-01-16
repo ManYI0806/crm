@@ -31,7 +31,52 @@ public class ClientServer {
 	private String processingResult;
 	// 处理结果满意度
 	private Integer clientContentment;
+	private ClientInfo clientInfo = new ClientInfo();
+	private DataServerType dataServerType ;
+	private SysUser sysUser =new SysUser();
+	
+	public ClientInfo getClientInfo() {
+		return clientInfo;
+	}
 
+	public void setClientInfo(ClientInfo clientInfo) {
+		this.clientInfo = clientInfo;
+	}
+
+	public DataServerType getDataServerType() {
+		return dataServerType;
+	}
+
+	public void setDataServerType(DataServerType dataServerType) {
+		this.dataServerType = dataServerType;
+	}
+
+	public SysUser getSysUser() {
+		return sysUser;
+	}
+
+	public void setSysUser(SysUser sysUser) {
+		this.sysUser = sysUser;
+	}
+
+	public Integer getBeginNum() {
+		return beginNum;
+	}
+
+	public void setBeginNum(Integer beginNum) {
+		this.beginNum = beginNum;
+	}
+
+	public Integer getMaxNum() {
+		return maxNum;
+	}
+
+	public void setMaxNum(Integer maxNum) {
+		this.maxNum = maxNum;
+	}
+
+	private Integer beginNum;
+	private Integer maxNum;
 	public Integer getServerId() {
 		return serverId;
 	}
