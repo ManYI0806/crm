@@ -45,4 +45,11 @@ public class DataClientLevelController {
 	public int deleteDataClientLevelBatch(@RequestBody int[] dclIdArr) throws Exception {
 		return dataClientLevelService.deleteDataClientLevelBatch(dclIdArr);
 	}
+	
+    //rept
+	@RequestMapping("/selectClientInfoAndDataClientLevelAll")
+	public List<DataClientLevel> selectClientInfoAndDataClientLevelAll() throws Exception{
+		return dataClientLevelService.selectClientInfoAndDataClientLevelAll();
+		       
+	}
 }
