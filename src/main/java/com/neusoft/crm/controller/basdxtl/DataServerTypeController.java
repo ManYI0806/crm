@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.neusoft.crm.entity.ClientServer;
 import com.neusoft.crm.entity.DataServerType;
 import com.neusoft.crm.service.basdxtl.DataServerTypeService;
 
@@ -44,5 +45,11 @@ public class DataServerTypeController {
 	@RequestMapping("/deleteDataServerTypeBatch")
 	public int deleteDataServerTypeBatch(@RequestBody int[] dstIdArr) throws Exception {
 		return dataServerTypeService.deleteDataServerTypeBatch(dstIdArr);
+	}
+	
+    //rept
+	@RequestMapping("/selectDataServerTypeAndClientServerAll")
+	public List<ClientServer> selectDataServerTypeAndClientServerAll() throws Exception{
+		return dataServerTypeService.selectDataServerTypeAndClientServerAll();
 	}
 }
