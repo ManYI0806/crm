@@ -12,4 +12,6 @@ public interface DataClientLevelService {
 	public List<DataClientLevel> selectDataClientLevelAll();
 	public DataClientLevel selectDataClientLevelById(DataClientLevel dataClientLevel);
 	public int deleteDataClientLevelBatch(int [] dclIdArr); 
+    //rept
+	public List<DataClientLevel> selectClientInfoAndDataClientLevelAll();
 }
