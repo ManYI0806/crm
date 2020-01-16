@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import com.neusoft.crm.entity.ClientServer;
 import com.neusoft.crm.entity.DataServerType;
 
 @Mapper
@@ -28,4 +29,7 @@ public interface DataServerTypeMapper {
 	public DataServerType selectDataServerTypeById(DataServerType dataServerType);
 
 	public int deleteDataServerTypeBatch(int[] dstIdArr);
+	
+    //rept
+	public List<ClientServer> selectDataServerTypeAndClientServerAll();
 }
