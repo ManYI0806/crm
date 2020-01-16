@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.neusoft.crm.mapper.serverxtl.ClientServerMapper">
-    <insert id="insertClientServer"  parameterType="ClientServer">
-        insert into clientServer
-        (serverTypeId,serverTitle,clientCode,serverContent,serverCreateId,serverCreateDate) 
-        values
-        (#{serverTypeId},#{serverTitle},#{clientCode},#{serverContent},#{serverCreateId},#{serverCreateDate})
-    </insert>
+<mapper
+	namespace="com.neusoft.crm.mapper.serverxtl.ClientServerMapper">
+	<insert id="insertClientServer" parameterType="ClientServer">
+		insert into clientServer
+		(serverTypeId,serverTitle,clientCode,serverContent,serverCreateId,serverCreateDate)
+		values
+		(#{serverTypeId},#{serverTitle},#{clientCode},#{serverContent},#{serverCreateId},#{serverCreateDate})
+	</insert>
+
+	<!-- rept -->
+	<resultMap type="clientServer" id="clientServerResultMap">
+		<result column="clientCode" property="clientCode" />
+		<result column="clientContentment" property="clientContentment" />
+		<association property="clientInfo" javaType="clientInfo">
+			<id column="cclientCode" property="clientCode" />
+			<result column="cclientContentment"
+				property="clientContentment" />
+		</association>
+	</resultMap>
+
+	<select id="selectClientInfoAndClientServerAll"
+		resultMap="clientServerResultMap">
+		select c.clientContentment
+		from clientInfo c left join
+		clientServer cs
+		on c.clientCode=cs.clientCode
+	</select>
 </mapper>
