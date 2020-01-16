@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import com.neusoft.crm.entity.ClientServer;
 import com.neusoft.crm.entity.DataClientLevel;
 
 @Mapper
@@ -29,4 +30,11 @@ public interface DataClientLevelMapper {
 	public DataClientLevel selectDataClientLevelById(DataClientLevel dataClientLevel);
 	
 	public int deleteDataClientLevelBatch(int [] dclIdArr); 
+
+	//rept
+    public List<DataClientLevel> selectClientInfoAndDataClientLevelAll();
+
+    //rept
+	public List<ClientServer> selectDataServerTypeAndClientServerAll();
 }
+
