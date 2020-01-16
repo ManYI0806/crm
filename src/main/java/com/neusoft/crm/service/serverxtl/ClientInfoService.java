@@ -9,4 +9,6 @@ public interface ClientInfoService {
 
 	public List<ClientInfo> selectClientInfoAll();
 	
+	public int insertClientInfo(ClientInfo clientInfo);
+	
 }
