@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,6 +23,11 @@ public class ClientInfoController {
 	@RequestMapping("/selectClientInfoAlljh")
 	public List<ClientInfo> selectClientInfoAll() {
 		return clientInfoService.selectClientInfoAll();
+	}
+	
+	@RequestMapping("/insertClientInfo")
+	public int insertClientInfo(@RequestBody ClientInfo clientInfo) throws Exception{
+		return clientInfoService.insertClientInfo(clientInfo);
 	}
 	
 }
