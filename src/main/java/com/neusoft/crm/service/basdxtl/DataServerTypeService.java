@@ -2,6 +2,7 @@ package com.neusoft.crm.service.basdxtl;
 
 import java.util.List;
 
+import com.neusoft.crm.entity.ClientServer;
 import com.neusoft.crm.entity.DataServerType;
 
 public interface DataServerTypeService {
@@ -11,4 +12,6 @@ public interface DataServerTypeService {
 	public List<DataServerType> selectDataServerTypeAll();
 	public DataServerType selectDataServerTypeById(DataServerType dataServerType);
 	public int deleteDataServerTypeBatch(int [] dstIdArr); 
+	//	rept
+	public List<ClientServer> selectDataServerTypeAndClientServerAll();
 }
