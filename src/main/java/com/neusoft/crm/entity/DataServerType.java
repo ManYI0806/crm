@@ -7,6 +7,8 @@ public class DataServerType {
 	private Integer dstId;
 	// 服务类别名称
 	private String dstName;
+	//rept
+	private ClientServer ClientServer;
 
 	public Integer getDstId() {
 		return dstId;
@@ -23,5 +25,14 @@ public class DataServerType {
 	public void setDstName(String dstName) {
 		this.dstName = dstName;
 	}
+
+	public ClientServer getClientServer() {
+		return ClientServer;
+	}
+
+	public void setClientServer(ClientServer clientServer) {
+		ClientServer = clientServer;
+	}
+	
 
 }
