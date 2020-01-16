@@ -22,5 +22,10 @@ public class ClientInfoServiceImpl implements ClientInfoService {
 	public List<ClientInfo> selectClientInfoAll() {
 		return clientInfoMapper.selectClientInfoAll();
 	}
+	
+	@Override
+	public int insertClientInfo(ClientInfo clientInfo) {
+		return clientInfoMapper.insertClientInfo(clientInfo);
+	}
 
 }
