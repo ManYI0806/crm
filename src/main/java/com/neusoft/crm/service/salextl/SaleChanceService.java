@@ -18,6 +18,8 @@ public interface SaleChanceService {
 	
 	public int editSaleChance(SaleChance saleChance);
 	
+	public int updateSaleChanceStatusById(SaleChance saleChance);
+	
 	public int deleteSaleChanceById(SaleChance saleChance);
 	
 }
