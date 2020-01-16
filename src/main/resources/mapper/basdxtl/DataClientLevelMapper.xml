@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.neusoft.crm.mapper.basdxtl.DataClientLevelMapper">
+<mapper
+	namespace="com.neusoft.crm.mapper.basdxtl.DataClientLevelMapper">
 
-    <delete id="deleteDataClientLevelBatch" parameterType="int">
-    delete from DataClientLevel where dclId in (
-    <foreach collection="array" item="dclId" separator=",">
-    	#{dclId}
-    </foreach>
-    )
-    </delete>
-  
+	<delete id="deleteDataClientLevelBatch" parameterType="int">
+		delete from DataClientLevel where dclId in (
+		<foreach collection="array" item="dclId" separator=",">
+			#{dclId}
+		</foreach>
+		)
+	</delete>
+
+	<!-- rept -->
+	<resultMap type="DataClientLevel"
+		id="DataClientLevelResultMap">
+		<id column="dclId" property="dclId" />
+		<result column="dclName" property="dclName" />
+		<association property="clientInfo" javaType="ClientInfo">
+			<id column="clientCode" property="clientCode" />
+			<result column="clientLevelId" property="clientLevelId" />
+		</association>
+	</resultMap>
+
+	<select id="selectClientInfoAndDataClientLevelAll"
+		resultMap="DataClientLevelResultMap">
+		select d.dclId,
+		d.dclname,
+		COUNT(*) as count
+		from clientinfo c join dataclientlevel d on
+		c.clientLevelId=d.dclId
+		group by d.dclid
+	</select>
+
 </mapper>
